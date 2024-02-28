@@ -1,0 +1,41 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        .divv{
+            margin-left: 25rem;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+{%block body%}
+<body>
+  <h1 style="text-align:center">Enter your feedback on our website</h1>
+  <form action="{% url 'mainfeedback' %}" method="post">
+    {% csrf_token %}
+    <div class="divv">
+        <label>FirstName:</label><br/>
+        <input name="FirstName" id="FirstName" type="text"><br/><br/>
+
+        <label>LastName:</label><br/>
+        <input name="LastName" id="LastName" type="text"><br/><br/>
+
+        <label>Email:</label><br/>
+        <input name="Email" id="Email" type="text"><br/><br/>
+
+        <label>Comment:</label><br/>
+        <textarea name="Comment" id="Comment"></textarea><br/><br/>
+
+        <button style="padding: 9px 15px;">Submit</button>
+
+    </div>
+</form>
+
+
+</body>
+{% endblock %}
+</html>
